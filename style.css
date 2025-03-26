@@ -1,61 +1,151 @@
 body {
+    font-family: Arial, sans-serif;
+    background-color: #faf8ef;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #faf8ef;
-    font-family: Arial, sans-serif;
-    margin: 0; /* Убираем отступы по умолчанию */
+    margin: 0;
 }
 
 .game-container {
-    position: relative;
-    width: 90vw; /* Ширина контейнера 90% от ширины экрана */
-    max-width: 400px; /* Максимальная ширина 400px */
+    width: 90%;
+    max-width: 450px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Используем 1fr для гибкости */
-    grid-gap: 5px;
-    background-color: #bbada0;
-    padding: 5px;
-    border-radius: 10px;
+h1 {
+    font-size: 3rem;
+    color: #776e65;
+    margin: 0;
+    text-align: center;
 }
 
-.cell {
-    background-color: #eee4da;
-    font-size: 5vw; /* Используем относительный размер шрифта */
+.scores {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    height: 20vw; /* Высота ячейки 20% от ширины экрана */
-    min-height: 80px; /* Минимальная высота ячейки */
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.score-container {
+    background: #bbada0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
+
+.score-title {
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .score {
-    font-size: 4vw; /* Относительный размер шрифта для счёта */
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.grid {
+    background: #bbada0;
+    border-radius: 6px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    aspect-ratio: 1/1;
+    background: rgba(238, 228, 218, 0.35);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #776e65;
+}
+
+.tile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background: #eee4da;
+    animation: appear 0.2s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 button {
-    margin-top: 20px;
+    background: #8f7a66;
+    color: white;
+    border: none;
+    border-radius: 5px;
     padding: 10px 20px;
-    font-size: 4vw; /* Относительный размер шрифта для кнопки */
+    font-size: 1.2rem;
+    margin-top: 20px;
+    width: 100%;
+    cursor: pointer;
 }
 
-/* Медиа-запрос для мобильных устройств */
-@media (max-width: 768px) {
-    .cell {
-        height: 15vw; /* Высота ячейки меньше на мобильных устройствах */
-    }
+button:hover {
+    background: #9f8b77;
 }
 
-/* Медиа-запрос для больших экранов */
-@media (min-width: 769px) {
-    .cell {
-        height: 80px; /* Фиксированная высота для больших экранов */
-        font-size: 35px; /* Фиксированный размер шрифта для больших экранов */
-    }
+#game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(238, 228, 218, 0.73);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #776e65;
+    z-index: 100;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Цвета для плиток */
+.tile-2 { background: #eee4da; }
+.tile-4 { background: #ede0c8; }
+.tile-8 { background: #f2b179; color: white; }
+.tile-16 { background: #f59563; color: white; }
+.tile-32 { background: #f67c5f; color: white; }
+.tile-64 { background: #f65e3b; color: white; }
+.tile-128 { background: #edcf72; color: white; font-size: 1.8rem; }
+.tile-256 { background: #edcc61; color: white; font-size: 1.8rem; }
+.tile-512 { background: #edc850; color: white; font-size: 1.8rem; }
+.tile-1024 { background: #edc53f; color: white; font-size: 1.5rem; }
+.tile-2048 { background: #edc22e; color: white; font-size: 1.5rem; }
+
+
+
+
+/* Добавьте в ваш CSS */
+.tile-move {
+    transition: all 0.15s ease-in-out;
+    position: absolute;
+}
+
+.cell {
+    position: relative; /* Чтобы absolute плитки позиционировались относительно ячейки */
 }

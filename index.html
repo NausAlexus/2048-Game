@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2048</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div class="game-container">
-        <div class="score" id="score">0</div>
+        <h1>2048</h1>
+        <div class="scores">
+            <div class="score-container">
+                <div class="score-title">Счет</div>
+                <div class="score" id="score">0</div>
+            </div>
+            <div class="score-container">
+                <div class="score-title">Рекорд</div>
+                <div class="score" id="best-score">0</div>
+            </div>
+        </div>
         <div class="grid" id="grid"></div>
-        <button id="restart">Перезапустить</button>
+        <button id="restart">Новая игра</button>
+        <div id="game-over" class="hidden">Игра окончена!</div>
     </div>
     <script src="script.js"></script>
 </body>
