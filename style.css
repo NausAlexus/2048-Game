@@ -149,3 +149,10 @@ button:hover {
 .cell {
     position: relative; /* Чтобы absolute плитки позиционировались относительно ячейки */
 }
+
+
+
+
+.delite{
+    display: flex;
+}
