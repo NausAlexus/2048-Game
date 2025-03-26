@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #faf8ef;
+    font-family: Arial, sans-serif;
+    margin: 0; /* Убираем отступы по умолчанию */
+}
+
+.game-container {
+    position: relative;
+    width: 90vw; /* Ширина контейнера 90% от ширины экрана */
+    max-width: 400px; /* Максимальная ширина 400px */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Используем 1fr для гибкости */
+    grid-gap: 5px;
+    background-color: #bbada0;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.cell {
+    background-color: #eee4da;
+    font-size: 5vw; /* Используем относительный размер шрифта */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 20vw; /* Высота ячейки 20% от ширины экрана */
+    min-height: 80px; /* Минимальная высота ячейки */
+}
+
+.score {
+    font-size: 4vw; /* Относительный размер шрифта для счёта */
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 4vw; /* Относительный размер шрифта для кнопки */
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .cell {
+        height: 15vw; /* Высота ячейки меньше на мобильных устройствах */
+    }
+}
+
+/* Медиа-запрос для больших экранов */
+@media (min-width: 769px) {
+    .cell {
+        height: 80px; /* Фиксированная высота для больших экранов */
+        font-size: 35px; /* Фиксированный размер шрифта для больших экранов */
+    }
+}
